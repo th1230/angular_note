@@ -1,0 +1,17 @@
+<!-- <h3 class="child">
+  我是Child組件<br /><br />
+  <ng-content></ng-content>
+</h3> -->
+
+<!-- <h3 class="child">
+  我是Child組件
+  <div class="box1">
+    <ng-content select=".box1"></ng-content>
+  </div>
+
+  <div class="box2">
+    <ng-content select="[box2]"></ng-content>
+  </div>
+</h3> -->
+
+<ng-container [ngTemplateOutlet]="content.TemplateRef"> </ng-container>

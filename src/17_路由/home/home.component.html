@@ -1,0 +1,25 @@
+<div class="container">
+  <h1>我是home組件</h1>
+  <div class="navLink">
+    <a routerLink="/home/message/001" routerLinkActive="isActive">Message001</a>
+    <a routerLink="/home/message/002" routerLinkActive="isActive">Message002</a>
+    <a routerLink="/home/message/003" routerLinkActive="isActive">Message003</a>
+  </div>
+
+  <div class="navLink">
+    <a
+      routerLink="/home/news"
+      routerLinkActive="isActive"
+      [queryParams]="{
+        id: '00' + selectNews
+      }"
+      >News</a
+    >
+    <select [(ngModel)]="selectNews">
+      <option value="1">new1</option>
+      <option value="2">new2</option>
+      <option value="3">new3</option>
+    </select>
+  </div>
+  <router-outlet></router-outlet>
+</div>

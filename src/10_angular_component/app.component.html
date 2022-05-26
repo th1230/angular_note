@@ -1,0 +1,91 @@
+<h1>Angular Components</h1>
+<!-- 
+          Angular Components 概述:
+              組件是 Angular 應用程序的主要構建塊。每個組件包括：
+                  1. 一個 HTML 範本，用於宣告頁面要渲染的內容 聲明頁面上呈現的內容的 HTML 模板。
+                  2. 一個用於定義行為的 Typescript 類別。
+                  3. 一個 CSS 選擇器，用於定義元件在範本中的使用方式。
+                  4. （可選）要應用在範本上的 CSS 樣式。
+
+          創建組件的先決條件:
+                  1. 安裝 Angular CLI。
+                  2. 建立一個帶有初始專案的 Angular 工作區。如果還沒有專案，你可以用 ng new <project-name> 建立一個，其中 <project-name> 是你的 Angular 應用的名字。
+
+          建立一個元件方法:
+                  1. 使用Angular CLI 建立元件
+                          (1). 在終端視窗中，導航到要放置你應用的目錄。
+                          (2). 執行 ng generate component <component-name> 命令，其中<component-name> 是新元件的名字。
+                          
+                          預設情況下，該命令會建立以下內容：
+                                  一個以該元件命名的資料夾
+                                            ----- 一個元件檔案<component-name>.component.ts
+                                            ----- 一個範本檔案<component-name>.component.html
+                                            -----  一個 CSS 檔案，<component-name>.component.
+                                            -----  測試檔案<component-name>.component.spec.ts
+
+                  2. 手動建立元件
+                          (1). 導航到你的 Angular 專案目錄。
+                          (2). 建立一個新檔案 <component-name>.component.ts 。
+                          (3). import { Component } from '@angular/core';
+                          (4). 在 import 語句之後，新增一個 裝飾器。@Component，並選擇一個 CSS 選擇器
+                              @Component({
+                                      selector: 'app-component-overview',
+                               })
+                          (5). 定義元件用以顯示資訊的 HTML 範本和樣式
+                              @Component({
+                                      selector: 'app-component-overview',
+                                      templateUrl: './component-overview.component.html',
+                                      styleUrls: ['./component-overview.component.css']
+                              })
+                          (6). 新增一個包含該元件程式碼 class 語句
+                                export class ComponentOverviewComponent {
+
+                                }
+
+          指定元件的 CSS 選擇器
+                    每個元件都需要一個 CSS 選擇器。選擇器會告訴 Angular：當在範本 HTML 中找到相應的標籤時，就把該元件實例化在那裡。例如，考慮一個元件 hello-world.component.ts ，它的選擇器定義為 app-hello-world 。 當 <app-hello-world> 出現在範本中時，這個選擇器就會讓 Angular 實例化該元件。
+
+          定義一個元件的範本
+                    範本是一段 HTML，它告訴 Angular 如何在應用中渲染元件。你可以透過以下兩種方式之一為元件定義範本：參考外部檔案，或直接寫在元件內部，兩種之間只能選一個。
+
+                     
+                    使用外部檔案:
+                        @Component({
+                            selector: 'app-component-overview',
+                            templateUrl: './component-overview.component.html',
+                        })
+
+                    直接寫在元件內部:
+                        @Component({
+                            selector: 'app-component-overview',
+                            template: '<h1>Hello World!</h1>',
+                        })
+
+          宣告元件的樣式
+                    你有以下兩種方式來為元件的範本宣告樣式：參考一個外部檔案，或直接寫在元件內部。要在單獨的檔案中宣告元件的樣式，就要把 styleUrls 屬性新增到 @Component 裝飾器中。
+
+                    單獨的檔案:
+                        @Component({
+                            selector: 'app-component-overview',
+                            templateUrl: './component-overview.component.html',
+                            styleUrls: ['./component-overview.component.css']
+                        })
+                    直接寫在元件內部(styles 屬性接受一個包含 CSS 規則的字串陣列):
+                        @Component({
+                            selector: 'app-component-overview',
+                            templateUrl: './component-overview.component.html',
+                            styleUrls: ['h1 { font-weight: normal; }']
+                        })
+
+                        
+
+
+
+ -->
+
+<hr />
+<app-cli></app-cli>
+<h3>我是透過cli創建出來的組件</h3>
+<hr />
+<app-write></app-write>
+<h3>我是手寫創建出來的組件</h3>

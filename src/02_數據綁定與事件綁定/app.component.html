@@ -1,0 +1,43 @@
+<h1>數據綁定與事件綁定</h1>
+<hr />
+<!-- 屬性繫結 使用 [ attrName ] 綁定-->
+<!-- 1. 使用數據綁定 -->
+<h3>數據綁定</h3>
+<img style="max-width: 100px" [src]="imgSrc" /><br />
+<!-- 2. 使用差值語法 -->
+<img style="max-width: 100px" src="{{ imgSrc }}" /><br />
+<hr />
+<!-- 事件繫結 使用 ( eventName ) 綁定 -->
+<!-- 注意 : 不需要加 " on "  -->
+<h3>事件綁定</h3>
+<button style="padding: 10px 20px; font-size: 1.5rem" (click)="sayhi()">
+  說hi</button
+><br />
+<!-- 可以在函數中傳遞$event觸發事件的相關紀錄 -->
+<button
+  style="background-color: orange; margin-top: 5px; color: white"
+  (click)="outputEvent($event)"
+>
+  點我輸出event.target
+</button>
+<hr />
+<h3>class綁定</h3>
+<!-- 單一類別繫結 -->
+<p [class.text]="true">我使用字串單一繫結</p>
+<!-- 多類別繫結 -->
+<p [class]="bindString">我使用多類別 字串 繫結</p>
+<p [class]="bindObj">我使用多類別 物件 繫結</p>
+<p [class]="bindArr">我使用多類別 陣列 繫結</p>
+<hr />
+<h3>style綁定</h3>
+<!-- 單一類別繫結 -->
+<div [style.backgroundColor]="bgc">我使用字串單一繫結</div>
+<br />
+<div [style.background-color]="bgc">我使用字串單一繫結</div>
+<!-- 指定某個單位 -->
+<div [style.width.px]="width">我使用字串單一繫結</div>
+<br />
+<!-- 多類別繫結 -->
+<div [style]="styleBindString">我使用多樣式 字串 繫結</div>
+<br />
+<div [style]="styleBindObj">我使用多樣式 物件 繫結</div>

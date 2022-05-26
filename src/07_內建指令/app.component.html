@@ -1,0 +1,104 @@
+<h1>內建指令</h1>
+<p>
+  指令是為 Angular 應用程式中的元素新增額外行為的類別。使用 Angular
+  的內建指令，你可以管理表單、列表、樣式以及要讓使用者看到的任何內容。
+</p>
+
+<h2>Angular 指令的不同型別如下：</h2>
+
+<ul>
+  <li>元件 —— 帶有範本的指令。這種指令型別是最常見的指令型別。</li>
+  <li>屬性型指令 —— 更改元素、元件或其他指令的外觀或行為的指令。</li>
+  <li>結構型指令 —— 透過新增和刪除 DOM 元素來更改 DOM 佈局的指令。</li>
+</ul>
+<hr />
+
+<h3>ngClass</h3>
+
+<p [ngClass]="isSpecial ? 'special' : ''">1. NgClass 與表示式一起使用</p>
+<p [ngClass]="currentClasses">2. NgClass 與方法一起使用</p>
+<button (click)="setCurrentClass()">setCurrentClass</button>
+<hr />
+
+<h3>ngStyle</h3>
+
+<div [ngStyle]="currentStyles">NgStyle與方法一起使用</div>
+<button (click)="setCurrentStyle()">setCurrentStyle</button>
+<hr />
+
+<h3>ngModel</h3>
+<!-- 通過ngModel可以實現對表單的雙向綁定 -->
+
+<label for="test">輸入新名字:</label>
+<input [(ngModel)]="name" id="test" />
+<p>當前的名字:{{ name }}</p>
+<hr />
+
+<h3>ngIf</h3>
+<p>應用於宿主元素來新增或刪除元素</p>
+<button (click)="toggletTitle()">使用ngIf新增/刪除組件</button>
+<div style="width: 300px; height: 100px; border: 1px solid black">
+  <p *ngIf="isOpenTitle">{{ title }}</p>
+  <p *ngIf="isOpenTitle">{{ title2.tit }}</p>
+  <!-- 若表示式返回值為null實則不會顯示內容 -->
+</div>
+<hr />
+
+<h3>ngFor</h3>
+<p>可以使用 NgFor 來指令顯示條目列表</p>
+
+<!-- let i=index 可以寫成 index as i  -->
+<div *ngFor="let item of myArr; let i = index">
+  <h3>0{{ i + 1 }}.You-bike站點:{{ item.sna }}</h3>
+  <h5>地區:{{ item.sarea }}</h5>
+  <!-- ngIf搭配else判斷顯示內容 -->
+  <h5 *ngIf="item.tot > 20; else elseText">可借總數量:{{ item.tot }}</h5>
+  <ng-template #elseText>------------當前可借數量不足-----------</ng-template>
+  <!-- 使用pipe管道，過濾資料進行輸出 -->
+  <h5>時間:{{ item.mday | date: "MM/dd HH:mm" }}</h5>
+</div>
+<hr />
+<h3>ng-container</h3>
+<p>
+  ng-container是分組元素，它不會干擾樣式或佈局，因為 Angular 不會將其放置在 DOM
+  中，可以搭配ngIf做特定區域的判斷
+</p>
+
+<h3>範例一 :</h3>
+<p>
+  我是Mike我間天外出
+  <ng-container *ngIf="test"> 看到 {{ name }}.我向他會手 </ng-container>
+  之後繼續前去運動.
+</p>
+
+<h3>範例二 :</h3>
+<div>
+  你現在的心情是 (<label
+    ><input type="checkbox" checked (change)="toggleShow()" />show sad</label
+  >)
+</div>
+<select [(ngModel)]="selectValue">
+  <ng-container *ngFor="let emotion of emotions">
+    <ng-container *ngIf="showSad || emotion !== '傷心'">
+      <option [ngValue]="emotion">{{ emotion }}</option>
+    </ng-container>
+  </ng-container>
+</select>
+<hr />
+
+<h3>ngSwitch</h3>
+<select [(ngModel)]="currentSwitch">
+  <option value="1">1</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+  <option value="5">5</option>
+</select>
+
+<div [ngSwitch]="currentSwitch">
+  <h3 *ngSwitchCase="1">我是第一種結果~~~~</h3>
+  <h3 *ngSwitchCase="2">我是第二種結果~~~~</h3>
+  <h3 *ngSwitchCase="3">我是第三種結果~~~~</h3>
+  <h3 *ngSwitchCase="4">我是第四種結果~~~~</h3>
+  <h3 *ngSwitchDefault>我是預設的結果~~~~</h3>
+</div>

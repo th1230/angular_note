@@ -1,0 +1,52 @@
+.container {
+  width: 500px;
+  height: 500px;
+  background-color: rgb(250, 250, 250);
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  border: 2px solid rgb(121, 230, 236);
+  color: rgb(121, 230, 236);
+  flex-direction: column;
+}
+
+.navLink {
+  margin-bottom: 10px;
+}
+
+a {
+  padding: 10px 20px;
+  border: 2px solid rgb(88, 202, 233);
+  text-decoration: none;
+  color: rgb(53, 190, 228);
+  border-radius: 5px;
+  margin-right: 5px;
+  transition: all 0.3s;
+  display: inline-block;
+  box-sizing: border-box;
+
+  line-height: 30px;
+  vertical-align: middle;
+  text-align: center;
+  font-size: 1.1rem;
+  &:hover {
+    transform: scale(1.03);
+  }
+  &:active {
+    transform: scale(0.9);
+  }
+
+  &.isActive {
+    background-color: rgb(88, 202, 233);
+    color: white;
+  }
+
+  &.isActive:hover {
+    background-color: rgb(48, 186, 224);
+    transform: scale(1.03);
+  }
+  &.isActive:active {
+    transform: scale(0.9);
+  }
+}

@@ -1,0 +1,14 @@
+<h1>Pipe --- 將數據格式化轉換並輸出</h1>
+<hr />
+
+<h3>範例一 : 使用button對date pipe所使用的格式進行切換</h3>
+<p>我的生日是=> {{ birthday | date: format }}</p>
+<button (click)="toggleFormat()">Toggle Format</button>
+<hr />
+
+<h3>範例二 : 透過串聯管道應用兩種格式</h3>
+<p>我的生日是=> {{ birthday | date: "fullDate" | uppercase }}</p>
+<hr />
+
+<h3>範例三 : 自定義pipe，讓數字返回2次方</h3>
+<p>當前的數字是=>{{ num }}家背後的數字是=>{{ num | powPipe: "123" }}</p>

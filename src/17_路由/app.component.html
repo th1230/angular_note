@@ -1,0 +1,18 @@
+<h1 class="text-center">Router 路由練習</h1>
+<div class="container">
+  <div>
+    <!-- 路由導航，作為<a>標籤的屬性進行配置，使用routeLink="/xxx" 指令路由導向 -->
+    <!-- routerLinkActive可以用於當該路由被選中時掛載class樣式  -->
+    <!-- routerLinkActiveOptions配置可以讓路由路徑完全匹配時才加上class樣式 -->
+    <a
+      routerLink="/home"
+      routerLinkActive="isActive"
+      [routerLinkActiveOptions]="{ exact: true }"
+      >Home</a
+    >
+    <a routerLink="/about" routerLinkActive="isActive">About</a>
+    <a routerLink="/feature" routerLinkActive="isActive">Feature</a>
+  </div>
+  <!-- router-outlet用於表示路由組件的佔位，導向到某路由時，展示該組建在此位置 -->
+  <router-outlet></router-outlet>
+</div>

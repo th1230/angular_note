@@ -1,0 +1,17 @@
+<h1>Output 與 Input 雙向數據綁定</h1>
+<!-- 
+      手動雙向數據綁定:
+          1. 在子組件中使用Input定義一個接取父數據的變量
+          2. 將數據通過綁定該變量名傳遞到子組件 
+          3. 使用EventEmitter創建事件 並通過Output裝飾器包裝
+          4. 在父組件綁定該事件，並通過一個callback function接取傳遞的數值($event)
+          5. 在子組件中通過在input標籤中綁定input事件
+          6. 當input事件觸發，通過event.target.value獲取input標籤的值，並通過emit觸發自定義事件，傳遞數據到父組件
+
+          注意: 盡量不要直接修改父組件傳遞過來的數據，當有多個組件間都採用此方法的話會導致數據流變的混亂，最終難以查出錯誤發生的根源
+ -->
+
+<div class="parent">
+  <h3>我是父組件</h3>
+  <app-child [message]="mes" (changeMessage)="catchEvent($event)"></app-child>
+</div>

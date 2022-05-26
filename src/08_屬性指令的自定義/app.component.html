@@ -1,0 +1,45 @@
+<h1>自定義屬性指令</h1>
+<!-- 
+      自定義屬性:
+            1. ng generate directive 指令名稱
+            2. 從 @angular/core 匯入 ElementRef。ElementRef 的 nativeElement 屬性會提供對宿主 DOM 元素的直接訪問許可權
+            3. 指令的 constructor() 中新增 ElementRef 以注入對宿主 DOM 元素的參考，該元素就是 appHighlight 的作用目標
+            4. 通過操作dom身上的屬性與方法操控當前掛載指令的元素
+      應用屬性型指令:
+            ->  <p appHighlight>Highlight me!</p> ，直接寫在需要此指令的標籤或組件上
+            
+      通過自訂屬性標籤掛載事件:
+             1.  在directive文件中引入hostListener裝飾器(使用 @HostListener() 裝飾器，你可以訂閱本屬性型指令宿主 DOM 元素上的事件)
+             2. 將自訂的函數通過hostListener裝飾器包裝，並傳入要綁定事件名作為裝飾器參數
+             3. 將指令掛載到需要應用的標籤身上
+      將值傳遞給屬性型指令:
+            引入Input裝飾器，把屬性指令當作子組件傳值即可 
+
+ -->
+<hr />
+
+<h2>選則 highlight 顏色</h2>
+<div>
+  <input type="radio" name="colors" (click)="color = 'lightgreen'" />Green
+  <input type="radio" name="colors" (click)="color = 'yellow'" />Yellow
+  <input type="radio" name="colors" (click)="color = 'cyan'" />Cyan
+</div>
+
+<h3>使用預設的highlight為---紅色---</h3>
+<p appHighlight>我需要highlight</p>
+<h3>設定預設值為---紫色---</h3>
+<p appHighlight defaultColor="violet">我需要highlight</p>
+<h3>直接設定highlight顏色為---黃色---</h3>
+<p appHighlight="yellow">我需要highlight</p>
+<h3>通過color動態決定</h3>
+<p [appHighlight]="color">我需要highlight</p>
+
+<hr />
+<h2>NgNonBindable停用 Angular 處理過程</h2>
+<p>
+  要防止在瀏覽器中進行表示式求值，請將 ngNonBindable
+  新增到宿主元素。ngNonBindable 會停用範本中的<插值>、<指令>和<繫結>
+</p>
+
+<p>不使用NgNonBindable:{{ 1 + 1 }}</p>
+<p ngNonBindable>使用NgNonBindable: {{ 1 + 1 }}</p>

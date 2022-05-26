@@ -1,0 +1,109 @@
+<!-- <form #form="ngForm">
+  <label
+    >帳號：
+    <input type="email" name="userEmail" id="" [(ngModel)]="userEmail" />
+  </label>
+  <br />
+  <label
+    >密碼：
+    <input
+      type="password"
+      name="userPassword"
+      id=""
+      [(ngModel)]="userPassword"
+    />
+  </label>
+  <button (click)="getForm(form)">查看Form</button>
+</form> -->
+
+<!-- <form #form="ngForm">
+  <div>
+    <label
+      >帳號：
+      <input
+        type="email"
+        name="userEmail"
+        id="email"
+        placeholder="請輸入帳號"
+        required
+        pattern="^[a-zA-Z0-9.!#$%&』*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:.[a-zA-Z0-9-]+)*$"
+        #iAccount="ngModel"
+        [(ngModel)]="myEmail"
+      />
+    </label>
+  </div>
+  <div *ngIf="iAccount?.errors">
+    <p *ngIf="iAccount.control?.errors?.['required']">請輸入帳號</p>
+    <p *ngIf="iAccount.control?.errors?.['pattern']">信箱格式錯誤</p>
+  </div>
+  <br />
+  <div>
+    <label
+      >密碼：
+      <input
+        type="password"
+        name="userPassword"
+        id="password"
+        placeholder="請輸入密碼"
+        minlength="6"
+        required
+        #iPassword="ngModel"
+        [(ngModel)]="myPassword"
+      />
+    </label>
+  </div>
+  <div *ngIf="iPassword?.errors">
+    <p *ngIf="iPassword.control?.errors?.['required']">請輸入密碼</p>
+    <p *ngIf="iPassword.control?.errors?.['minlength']">密碼長度須超過 6 字元</p>
+  </div>
+</form> -->
+
+<form [formGroup]="form">
+  <div class="inputControl">
+    <label>
+      <span>信箱</span>
+      <input
+        type="email"
+        class="formControl"
+        formControlName="email"
+        [ngClass]="{ errors: f?.['email']?.errors }"
+        placeholder="Account"
+      />
+    </label>
+    <!-- 帳號驗證 -->
+    <p class="errors" *ngIf="f?.['email']?.errors">
+      <span *ngIf="f?.['email']?.errors?.['required']">
+        <i class="fas fa-exclamation-triangle"></i>請填寫帳號
+      </span>
+      <span *ngIf="f?.['email']?.errors?.['email']">
+        <i class="fas fa-exclamation-triangle"></i>信箱格式錯誤
+      </span>
+    </p>
+    <!-- 帳號驗證結束 -->
+  </div>
+
+  <!-- 密碼 -->
+  <div class="inputControl">
+    <label>
+      <span>密碼</span>
+      <input
+        type="password"
+        class="formControl"
+        formControlName="password"
+        [ngClass]="{ errors: f?.['password']?.errors }"
+        placeholder="Password"
+      />
+    </label>
+
+    <!-- 密碼驗證-->
+    <p class="errors" *ngIf="f?.['password']?.errors">
+      <span *ngIf="f?.['password']?.errors?.['required']">
+        <i class="fas fa-exclamation-triangle"></i>請填寫密碼
+      </span>
+      <span *ngIf="f?.['password']?.errors?.['minlength']"
+        >請輸入超過6位數密碼</span
+      >
+    </p>
+    <!-- 密碼驗證結束 -->
+  </div>
+</form>

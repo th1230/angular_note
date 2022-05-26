@@ -1,0 +1,25 @@
+<!-- <h1>單插槽內容投影</h1>
+
+<h1 class="parent">
+  我是App組件
+  <app-child>我是在App組件被定義並投影到Child組件的內容</app-child>
+</h1> -->
+
+<!-- <h1>多插槽內容投影</h1>
+
+<h1 class="parent">
+  我是App組件
+  <app-child>
+    <p class="box1">我要傳到box1中的ng-content</p>
+    <p box2>我要傳到box2中的ng-content</p>
+  </app-child>
+</h1> -->
+
+<h1>有條件的內容投影</h1>
+<app-child>
+  <ng-template appChildRef>
+    <h3 style="font-size: 30px; color: red">
+      我是通過ngTemplateOutlet所傳遞過來的內容
+    </h3>
+  </ng-template>
+</app-child>

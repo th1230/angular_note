@@ -1,0 +1,47 @@
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.text-center {
+  text-align: center;
+}
+
+a {
+  padding: 10px 20px;
+  border: 2px solid rgb(88, 202, 233);
+  text-decoration: none;
+  color: rgb(53, 190, 228);
+  border-radius: 5px;
+  margin-right: 5px;
+  transition: all 0.3s;
+  display: inline-block;
+  box-sizing: border-box;
+  width: 100px;
+  line-height: 30px;
+  vertical-align: middle;
+  text-align: center;
+  font-size: 1.1rem;
+  &:hover {
+    transform: scale(1.03);
+  }
+  &:active {
+    transform: scale(0.9);
+  }
+
+  &.isActive {
+    background-color: rgb(88, 202, 233);
+    color: white;
+  }
+
+  &.isActive:hover {
+    background-color: rgb(48, 186, 224);
+    transform: scale(1.03);
+  }
+  &.isActive:active {
+    transform: scale(0.9);
+  }
+}

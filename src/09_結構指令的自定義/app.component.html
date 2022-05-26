@@ -1,0 +1,8 @@
+<h1>自定義結構指令</h1>
+<hr />
+<button (click)="changeState()">開關標籤{{ isShow }}</button>
+<div>
+  <ng-template *appUnless="isShow"
+    ><p class="unless a">我是一個測試用標籤</p>
+  </ng-template>
+</div>

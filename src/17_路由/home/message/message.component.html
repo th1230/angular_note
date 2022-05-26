@@ -1,0 +1,12 @@
+<div class="message">
+  <h2>我是message組件</h2>
+  <ng-container *ngFor="let mes of dataArr">
+    <ul *ngIf="mes.id == params">
+      <li>id:{{ mes.id }}</li>
+      <li>title:{{ mes.title }}</li>
+      <li>content:{{ mes.content }}</li>
+    </ul>
+  </ng-container>
+
+  <button (click)="goBackToHome()">返回home</button>
+</div>

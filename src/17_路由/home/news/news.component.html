@@ -1,0 +1,10 @@
+<div class="news">
+  <h2>我是news組件</h2>
+  <ng-container *ngFor="let new of dataArr">
+    <ul *ngIf="new.id == queryParams">
+      <li>id:{{ new.id }}</li>
+      <li>title:{{ new.title }}</li>
+      <li>content:{{ new.content }}</li>
+    </ul>
+  </ng-container>
+</div>
